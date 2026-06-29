@@ -1,0 +1,32 @@
+[1m[33mComponent HMR has been enabled, see https://angular.dev/hmr for more info.[39m[22m
+[33m❯[39m Building...
+[32m✔[39m Building...
+[1mInitial chunk files[22m[2m | [22m[1mNames[22m                     [2m | [22m [1mRaw size[22m
+[32mstyles.css[39m         [2m | [22m[2mstyles[22m                    [2m | [22m[36m515.53 kB[39m[2m | [22m
+[32mscripts.js[39m         [2m | [22m[2mscripts[22m                   [2m | [22m[36m232.34 kB[39m[2m | [22m
+[32mpolyfills.js[39m       [2m | [22m[2mpolyfills[22m                 [2m | [22m [36m89.77 kB[39m[2m | [22m
+[32mmain.js[39m            [2m | [22m[2mmain[22m                      [2m | [22m [36m14.60 kB[39m[2m | [22m
+[32mchunk-TPSQIO3K.js[39m  [2m | [22m[2m-[22m                         [2m | [22m  [36m4.60 kB[39m[2m | [22m
+[32mchunk-5NKQEHJ7.js[39m  [2m | [22m[2m-[22m                         [2m | [22m  [36m4.24 kB[39m[2m | [22m
+[32mchunk-2QQ3UYZZ.js[39m  [2m | [22m[2m-[22m                         [2m | [22m  [36m2.53 kB[39m[2m | [22m
+[32mchunk-WDMUDEB6.js[39m  [2m | [22m[2m-[22m                         [2m | [22m  [36m1.93 kB[39m[2m | [22m
+[32mchunk-4A5C5K2C.js[39m  [2m | [22m[2m-[22m                         [2m | [22m  [36m1.60 kB[39m[2m | [22m
+
+[1m [22m                  [2m | [22m[1mInitial total[22m             [2m | [22m[1m867.15 kB[22m
+
+[1mLazy chunk files[22m   [2m | [22m[1mNames[22m                     [2m | [22m [1mRaw size[22m
+[32mchunk-TJI7D2EF.js[39m  [2m | [22m[2mmain-layout-component[22m     [2m | [22m [36m54.65 kB[39m[2m | [22m
+[32mchunk-U6QBUBUV.js[39m  [2m | [22m[2mauth-routes[22m               [2m | [22m [36m51.53 kB[39m[2m | [22m
+[32mchunk-LKLFVYGP.js[39m  [2m | [22m[2mcreate-company-component[22m  [2m | [22m [36m40.15 kB[39m[2m | [22m
+[32mchunk-R2BXIF3V.js[39m  [2m | [22m[2m-[22m                         [2m | [22m [36m16.46 kB[39m[2m | [22m
+[32mchunk-A3PCLDU2.js[39m  [2m | [22m[2mdashboard-component[22m       [2m | [22m [36m12.58 kB[39m[2m | [22m
+[32mchunk-YBPCOW64.js[39m  [2m | [22m[2mcompany-settings-component[22m[2m | [22m [36m10.63 kB[39m[2m | [22m
+[32mchunk-WN7UUUZQ.js[39m  [2m | [22m[2mauth-layout-component[22m     [2m | [22m  [36m9.68 kB[39m[2m | [22m
+[32mchunk-K37FLU27.js[39m  [2m | [22m[2m-[22m                         [2m | [22m  [36m2.19 kB[39m[2m | [22m
+[32mchunk-2SJFNNUN.js[39m  [2m | [22m[2m-[22m                         [2m | [22m  [36m2.11 kB[39m[2m | [22m
+
+Application bundle generation complete. [7.594 seconds]
+
+Watch mode enabled. Watching for file changes...
+NOTE: Raw file sizes do not reflect development server per-request transformations.
+  [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m4200[22m/[39m

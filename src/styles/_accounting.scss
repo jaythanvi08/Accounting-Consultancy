@@ -1,0 +1,145 @@
+// ============================================================
+//  Accounting-specific utility classes & conventions
+//  Debit = green (▲)   Credit = red (▼)
+// ============================================================
+
+// ---- Monetary amounts ----
+.amount {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  letter-spacing: -0.2px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+// ---- Debit / Credit semantic text ----
+.debit,
+.text-debit {
+  color: var(--success) !important;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.credit,
+.text-credit {
+  color: var(--danger) !important;
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+// Positive / negative numeric values
+.value-positive {
+  color: var(--success);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+.value-negative {
+  color: var(--danger);
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
+// ---- Dr / Cr badges ----
+.badge-dr,
+.badge-cr {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+}
+
+.badge-dr {
+  color: var(--success);
+  background: rgba(26, 122, 74, 0.1);
+}
+
+.badge-cr {
+  color: var(--danger);
+  background: rgba(178, 34, 34, 0.1);
+}
+
+// ---- Ledger T-account presentation ----
+.t-account {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  .t-account__head {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--primary);
+    color: #fff;
+    font-family: var(--font-heading);
+    font-weight: 600;
+
+    > div {
+      padding: 0.6rem 1rem;
+    }
+
+    > div:first-child {
+      border-right: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  }
+
+  .t-account__body {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .t-account__col:first-child {
+      border-right: 1px solid var(--border);
+    }
+  }
+}
+
+// ---- Reusable surface helpers ----
+.surface-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+// KPI / stat tiles
+.kpi-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  padding: 1.25rem 1.4rem;
+  transition: transform var(--transition), box-shadow var(--transition);
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow);
+  }
+
+  .kpi-card__label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .kpi-card__value {
+    font-family: var(--font-mono);
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: var(--text-primary);
+    margin-top: 0.25rem;
+  }
+
+  .kpi-card__icon {
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    font-size: 1.3rem;
+  }
+}

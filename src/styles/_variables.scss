@@ -1,0 +1,75 @@
+// ============================================================
+//  LedgerAI — Design Tokens
+//  Enterprise Accounting Theme
+// ============================================================
+
+:root {
+  // ---- Brand / Primary ----
+  --primary: #1b3a5c; // Deep Navy Blue — trust & finance
+  --primary-light: #2e5f8a;
+  --primary-dark: #0f2238;
+
+  // ---- Accent ----
+  --accent: #c8860a; // Gold — prosperity & accounting
+  --accent-light: #f0a820;
+
+  // ---- Semantic (accounting) ----
+  --success: #1a7a4a; // Credit / Income — green
+  --danger: #b22222; // Debit / Expense — deep red
+  --warning: #e8a020;
+  --info: #2e5f8a;
+
+  // ---- Surfaces ----
+  --surface: #f4f7fb; // page background
+  --card-bg: #ffffff;
+  --sidebar-bg: #0f2238; // dark navy sidebar
+  --sidebar-text: #c9d6e5;
+  --sidebar-active: #c8860a; // gold highlight on active item
+  --sidebar-hover: #16314f;
+
+  // ---- Lines & Text ----
+  --border: #dde3ec;
+  --text-primary: #1a2332;
+  --text-secondary: #5a6478;
+  --text-muted: #8a94a6;
+
+  // ---- Typography ----
+  --font-heading: 'Poppins', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'Fira Code', monospace;
+
+  // ---- Layout metrics ----
+  --sidebar-width: 280px;
+  --sidebar-width-collapsed: 64px;
+  --topbar-height: 64px;
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  // ---- Elevation ----
+  --shadow-sm: 0 1px 2px rgba(15, 34, 56, 0.06);
+  --shadow: 0 4px 16px rgba(15, 34, 56, 0.08);
+  --shadow-lg: 0 12px 40px rgba(15, 34, 56, 0.16);
+
+  // ---- Motion ----
+  --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// ---- SCSS aliases (compile-time use) ----
+$primary: #1b3a5c;
+$accent: #c8860a;
+$success: #1a7a4a;
+$danger: #b22222;
+$surface: #f4f7fb;
+$border: #dde3ec;
+
+// Override a few Bootstrap CSS custom-property defaults to match the brand.
+:root {
+  --bs-primary: #1b3a5c;
+  --bs-primary-rgb: 27, 58, 92;
+  --bs-link-color: #1b3a5c;
+  --bs-link-hover-color: #c8860a;
+  --bs-body-font-family: var(--font-body);
+  --bs-body-color: var(--text-primary);
+  --bs-border-color: var(--border);
+}

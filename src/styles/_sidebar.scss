@@ -1,0 +1,261 @@
+// ============================================================
+//  Sidebar + main shell layout
+// ============================================================
+
+.app-shell {
+  display: flex;
+  min-height: 100vh;
+  background: var(--surface);
+}
+
+// ---------------- Sidebar ----------------
+.app-sidebar {
+  width: var(--sidebar-width);
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 1040;
+  transition: width var(--transition);
+  overflow: hidden;
+
+  &.is-collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .app-sidebar__label,
+    .nav-group__title,
+    .brand-text {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  // brand header
+  .app-sidebar__brand {
+    height: var(--topbar-height);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    flex-shrink: 0;
+  }
+
+  // scrollable nav
+  .app-sidebar__nav {
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0.75rem 0.5rem 1.5rem;
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 3px;
+    }
+  }
+
+  .nav-group__title {
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-muted);
+    font-weight: 600;
+    padding: 0.9rem 0.85rem 0.35rem;
+    transition: opacity var(--transition);
+    white-space: nowrap;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.6rem 0.85rem;
+    margin: 0.1rem 0;
+    border-radius: var(--radius-sm);
+    color: var(--sidebar-text);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background var(--transition), color var(--transition);
+
+    i {
+      font-size: 1.05rem;
+      width: 22px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+
+    .app-sidebar__label {
+      transition: opacity var(--transition);
+    }
+
+    &:hover {
+      background: var(--sidebar-hover);
+      color: #fff;
+    }
+
+    &.active {
+      background: linear-gradient(90deg, rgba(200, 134, 10, 0.18), transparent);
+      color: #fff;
+      box-shadow: inset 3px 0 0 var(--sidebar-active);
+
+      i {
+        color: var(--sidebar-active);
+      }
+    }
+  }
+
+  // nested children
+  .nav-children {
+    margin-left: 0.4rem;
+    padding-left: 0.6rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.08);
+
+    .nav-link {
+      font-size: 0.82rem;
+      padding: 0.45rem 0.75rem;
+    }
+  }
+
+  .nav-group__toggle .chev {
+    margin-left: auto;
+    transition: transform var(--transition);
+    font-size: 0.8rem;
+  }
+  .nav-group.open .nav-group__toggle .chev {
+    transform: rotate(90deg);
+  }
+}
+
+// ---------------- Main content area ----------------
+.app-main {
+  flex: 1;
+  margin-left: var(--sidebar-width);
+  transition: margin-left var(--transition);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+
+  &.is-collapsed {
+    margin-left: var(--sidebar-width-collapsed);
+  }
+}
+
+.app-content {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+// ---------------- Topbar ----------------
+.app-topbar {
+  height: var(--topbar-height);
+  background: var(--card-bg);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0 1.25rem;
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+
+  .topbar__toggle {
+    border: none;
+    background: transparent;
+    font-size: 1.3rem;
+    color: var(--text-secondary);
+    cursor: pointer;
+    line-height: 1;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  .topbar__spacer {
+    flex: 1;
+  }
+
+  .topbar__action {
+    border: none;
+    background: transparent;
+    color: var(--text-secondary);
+    font-size: 1.15rem;
+    position: relative;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+
+    &:hover {
+      background: var(--surface);
+      color: var(--primary);
+    }
+  }
+
+  .topbar__user {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    cursor: pointer;
+
+    .avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-weight: 600;
+      font-family: var(--font-heading);
+    }
+  }
+}
+
+// company badge near brand / switcher
+.company-badge {
+  background: rgba(200, 134, 10, 0.15);
+  color: var(--accent-light);
+  border: 1px solid rgba(200, 134, 10, 0.35);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15rem 0.6rem;
+  white-space: nowrap;
+}
+
+// mobile
+@media (max-width: 991.98px) {
+  .app-sidebar {
+    transform: translateX(-100%);
+    transition: transform var(--transition);
+
+    &.is-open {
+      transform: translateX(0);
+    }
+  }
+  .app-main {
+    margin-left: 0 !important;
+  }
+}
+
+// floating utility (calculator) panel
+.calc-panel {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  width: 280px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  z-index: 1060;
+}

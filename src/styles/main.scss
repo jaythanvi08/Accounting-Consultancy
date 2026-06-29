@@ -1,0 +1,219 @@
+// ============================================================
+//  LedgerAI — main stylesheet
+//  Bootstrap 5.3 is loaded globally via angular.json.
+//  This file layers the brand design system on top.
+// ============================================================
+
+@use 'variables';
+@use 'accounting';
+@use 'sidebar';
+@use 'tables';
+
+// ---------------- Global base ----------------
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--surface);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+// ---------------- Buttons ----------------
+.btn {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  border-radius: var(--radius-sm);
+  padding: 0.5rem 1.1rem;
+}
+
+.btn-primary {
+  --bs-btn-bg: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary-light);
+  --bs-btn-hover-border-color: var(--primary-light);
+  --bs-btn-active-bg: var(--primary-dark);
+  --bs-btn-active-border-color: var(--primary-dark);
+  --bs-btn-disabled-bg: var(--primary);
+  --bs-btn-disabled-border-color: var(--primary);
+}
+
+.btn-accent {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--accent);
+  --bs-btn-border-color: var(--accent);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--accent-light);
+  --bs-btn-hover-border-color: var(--accent-light);
+  color: #fff;
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--primary);
+  --bs-btn-border-color: var(--primary);
+  --bs-btn-hover-bg: var(--primary);
+  --bs-btn-hover-border-color: var(--primary);
+}
+
+// ---------------- Cards ----------------
+.card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-header {
+  background: transparent;
+  border-bottom: 1px solid var(--border);
+  font-family: var(--font-heading);
+  font-weight: 600;
+}
+
+// ---------------- Forms ----------------
+.form-label {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.form-control,
+.form-select {
+  border-color: var(--border);
+  border-radius: var(--radius-sm);
+  font-size: 0.92rem;
+  padding: 0.55rem 0.8rem;
+
+  &:focus {
+    border-color: var(--primary-light);
+    box-shadow: 0 0 0 0.2rem rgba(46, 95, 138, 0.15);
+  }
+}
+
+.form-control.is-invalid,
+.form-select.is-invalid {
+  border-color: var(--danger);
+}
+
+.invalid-feedback {
+  font-size: 0.78rem;
+}
+
+.required-mark {
+  color: var(--danger);
+  margin-left: 2px;
+}
+
+// ---------------- Page headings ----------------
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+
+  .page-header__title {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.4rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.55rem;
+
+    i {
+      color: var(--accent);
+    }
+  }
+
+  .page-header__subtitle {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+}
+
+// ---------------- Breadcrumb ----------------
+.breadcrumb {
+  margin: 0;
+  font-size: 0.82rem;
+
+  .breadcrumb-item a {
+    color: var(--text-secondary);
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+
+  .breadcrumb-item.active {
+    color: var(--primary);
+    font-weight: 600;
+  }
+}
+
+// ---------------- Utilities ----------------
+.text-accent {
+  color: var(--accent) !important;
+}
+.bg-soft-primary {
+  background: rgba(27, 58, 92, 0.08);
+}
+.bg-soft-accent {
+  background: rgba(200, 134, 10, 0.12);
+}
+.bg-soft-success {
+  background: rgba(26, 122, 74, 0.1);
+}
+.bg-soft-danger {
+  background: rgba(178, 34, 34, 0.1);
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+// fade-in helper used by tab transitions / route content
+.fade-in {
+  animation: fadeIn 0.35s ease both;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
