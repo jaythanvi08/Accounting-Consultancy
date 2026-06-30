@@ -1,4 +1,5 @@
 using LedgerAI.Domain.Common;
+using LedgerAI.Domain.Entities;
 using LedgerAI.Domain.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
@@ -19,8 +20,8 @@ public sealed class LedgerAIDbContext : DbContext
         _currentTenantId = _tenantProvider.GetTenantId();
     }
 
-    // DbSets will be added here as domain entities are created, e.g.:
-    // public DbSet<Company> Companies => Set<Company>();
+    public DbSet<Tenant> Tenants => Set<Tenant>();
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,0 +1,39 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "API: Debug (http://localhost:5030)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "build-api",
+      "program": "${workspaceFolder}/api/src/LedgerAI.API/bin/Debug/net10.0/LedgerAI.API.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}/api/src/LedgerAI.API",
+      "stopAtEntry": false,
+      "serverReadyAction": {
+        "action": "openExternally",
+        "pattern": "\\bNow listening on:\\s+(https?://\\S+)"
+      },
+      "env": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "sourceFileMap": {
+        "/Views": "${workspaceFolder}/api/src/LedgerAI.API/Views"
+      }
+    },
+    {
+      "name": "Web: ng serve (http://localhost:4200)",
+      "type": "chrome",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/web/src",
+      "preLaunchTask": "ng-serve"
+    }
+  ],
+  "compounds": [
+    {
+      "name": "Full Stack (API + Angular)",
+      "configurations": ["API: Debug (http://localhost:5030)", "Web: ng serve (http://localhost:4200)"]
+    }
+  ]
+}
