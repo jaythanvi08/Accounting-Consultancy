@@ -1,0 +1,18 @@
+## .NET build output
+bin/
+obj/
+
+## User-specific files
+*.user
+*.suo
+.vs/
+
+## Rider
+.idea/
+
+## Local config — never commit secrets
+appsettings.Development.json
+
+## NuGet
+*.nupkg
+packages/

@@ -9,6 +9,7 @@ export type Profession =
 
 export interface User {
   id: string;
+  tenantId: string;
   firstName: string;
   lastName: string;
   phone: string;
@@ -33,6 +34,7 @@ export interface LoginPayload {
 }
 
 export interface RegisterPayload {
+  companyName: string;
   firstName: string;
   lastName: string;
   phone: string;

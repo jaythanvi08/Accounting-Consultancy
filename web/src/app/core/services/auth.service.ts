@@ -1,23 +1,27 @@
 import { Injectable, computed, inject, signal } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { StorageService } from './storage.service';
 import { AuthSession, LoginPayload, RegisterPayload, User } from '../models';
+import { environment } from '../../../environments/environment';
 
 interface StoredUser extends User {
   password: string;
 }
 
+interface ApiRegisterResponse {
+  token: string;
+  userId: string;
+  tenantId: string;
+}
+
 const USERS_KEY = 'ledgerai.users';
 const SESSION_KEY = 'ledgerai.session';
 
-/**
- * Client-side auth service. With no backend wired, it persists users and the
- * active session in localStorage and exposes reactive signals. Swap the method
- * bodies for HttpClient calls when an API is available — the public surface
- * (signals + promises) stays the same.
- */
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private readonly storage = inject(StorageService);
+  private readonly http = inject(HttpClient);
 
   private readonly session = signal<AuthSession | null>(this.storage.get<AuthSession>(SESSION_KEY));
 
@@ -25,18 +29,20 @@ export class AuthService {
   readonly isLoggedIn = computed(() => this.session() !== null);
   readonly token = computed(() => this.session()?.token ?? null);
 
-  /** Register a new user. Rejects if email/phone already exists. */
+  /** Register a new user + company via the API. Saves to the database. */
   async register(payload: RegisterPayload): Promise<User> {
-    const users = this.storage.get<StoredUser[]>(USERS_KEY) ?? [];
-    const exists = users.some(
-      (u) => u.email.toLowerCase() === payload.email.toLowerCase() || u.phone === payload.phone
+    const res = await firstValueFrom(
+      this.http.post<ApiRegisterResponse>(`${environment.apiBaseUrl}/api/auth/register`, {
+        companyName: payload.companyName,
+        displayName: `${payload.firstName} ${payload.lastName}`.trim(),
+        email: payload.email,
+        password: payload.password
+      })
     );
-    if (exists) {
-      throw new Error('An account with this email or phone already exists.');
-    }
 
-    const user: StoredUser = {
-      id: crypto.randomUUID(),
+    const user: User = {
+      id: res.userId,
+      tenantId: res.tenantId,
       firstName: payload.firstName,
       lastName: payload.lastName,
       phone: payload.phone,
@@ -44,16 +50,16 @@ export class AuthService {
       age: payload.age,
       profession: payload.profession,
       gender: payload.gender,
-      createdAt: new Date().toISOString(),
-      password: payload.password
+      createdAt: new Date().toISOString()
     };
 
-    this.storage.set(USERS_KEY, [...users, user]);
-    this.startSession(user, true);
-    return this.stripPassword(user);
+    const session: AuthSession = { token: res.token, user, issuedAt: Date.now() };
+    this.session.set(session);
+    this.storage.set(SESSION_KEY, session);
+    return user;
   }
 
-  /** Authenticate by email or phone + password. */
+  /** Authenticate by email or phone + password (localStorage until login API is built). */
   async login(payload: LoginPayload): Promise<User> {
     const users = this.storage.get<StoredUser[]>(USERS_KEY) ?? [];
     const id = payload.identifier.trim().toLowerCase();
@@ -91,7 +97,6 @@ export class AuthService {
     return user;
   }
 
-  /** Mock JWT-shaped token (header.payload.signature, base64url) — demo only. */
   private fakeToken(sub: string): string {
     const header = this.b64url(JSON.stringify({ alg: 'none', typ: 'JWT' }));
     const body = this.b64url(JSON.stringify({ sub, iat: Date.now() }));

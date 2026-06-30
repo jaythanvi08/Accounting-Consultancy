@@ -23,6 +23,13 @@ import { Gender, Profession } from '../../core/models';
       <p class="text-secondary mb-4">Start managing your books in minutes.</p>
 
       <div class="row g-3">
+        <div class="col-12">
+          <label class="form-label">Company / Business Name<span class="required-mark">*</span></label>
+          <input class="form-control" formControlName="companyName" placeholder="e.g. Acme Enterprises"
+            [class.is-invalid]="invalid('companyName')" />
+          @if (invalid('companyName')) {<div class="invalid-feedback d-block">Company name must be at least 2 characters.</div>}
+        </div>
+
         <div class="col-6">
           <label class="form-label">First Name<span class="required-mark">*</span></label>
           <input class="form-control" formControlName="firstName" [class.is-invalid]="invalid('firstName')" />
@@ -154,6 +161,7 @@ export class RegisterComponent {
 
   readonly form = this.fb.nonNullable.group(
     {
+      companyName: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(200)]],
       firstName: ['', [Validators.required, Validators.minLength(2)]],
       lastName: ['', [Validators.required, Validators.minLength(1)]],
       phone: ['', [Validators.required, indianPhoneValidator()]],
@@ -202,6 +210,7 @@ export class RegisterComponent {
     const v = this.form.getRawValue();
     try {
       await this.auth.register({
+        companyName: v.companyName,
         firstName: v.firstName,
         lastName: v.lastName,
         phone: v.phone,
