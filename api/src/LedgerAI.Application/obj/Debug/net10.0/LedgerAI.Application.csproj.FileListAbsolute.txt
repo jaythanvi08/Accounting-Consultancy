@@ -1,0 +1,16 @@
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\bin\Debug\net10.0\LedgerAI.Application.deps.json
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\bin\Debug\net10.0\LedgerAI.Application.dll
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\bin\Debug\net10.0\LedgerAI.Application.pdb
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\bin\Debug\net10.0\LedgerAI.Domain.dll
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\bin\Debug\net10.0\LedgerAI.Domain.pdb
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.csproj.AssemblyReference.cache
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.AssemblyInfoInputs.cache
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.AssemblyInfo.cs
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.csproj.CoreCompileInputs.cache
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.sourcelink.json
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.CC967E9C.Up2Date
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.dll
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\refint\LedgerAI.Application.dll
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\LedgerAI.Application.pdb
+C:\Users\Administrator\Pictures\AI_Powerd_Accountant\api\src\LedgerAI.Application\obj\Debug\net10.0\ref\LedgerAI.Application.dll
